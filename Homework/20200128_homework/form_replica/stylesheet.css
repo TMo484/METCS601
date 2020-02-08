@@ -1,0 +1,21 @@
+h1 {
+    font-size: 42px;
+}
+
+h5 {
+    color:gray;
+}
+
+.field_headers {
+    text-align: right;
+    width: 100px;
+}
+
+.full_width {
+    width:100%;
+}
+
+.image_float {
+    vertical-align: top;
+    width:100px
+}

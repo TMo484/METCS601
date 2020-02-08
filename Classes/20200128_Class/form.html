@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<meta lang="en">
+
+
+<html>
+<html>
+    <title>Form Practice</title>
+    <style>
+        .blocked {
+            display: block
+        }
+    </style>
+</html>
+<body>
+    <form method="get">
+        <input type="date"
+               id="birthDate"
+               name="birthDate"
+               title="Your birth date"/>
+        <select name="colorDropdown">
+            <option value="red">Red</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+        </select>
+        <div name=radioColor>
+            <input type="radio"
+                    name="color"
+                    value="red"/>
+            Red
+            <input type="radio"
+                    name="color"
+                    value="blue"/>
+            Blue
+            <input type="radio"
+                    name="color"
+                    value="green"/>
+            Green
+        </div>
+        <div>
+            <input type="file"
+                   name="file"/>
+        </div>
+        <textarea style="width:20%;height:100px"
+                  name="textArea">Hello</textarea>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+</body>
+</html>

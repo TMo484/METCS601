@@ -1,0 +1,21 @@
+.full_width {
+    width: 100%;
+}
+
+.align_left {
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.data_row {
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+}
+
+.table_footer {
+    color: grey;
+    font-style: italic;
+}

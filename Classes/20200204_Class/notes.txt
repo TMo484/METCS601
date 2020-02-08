@@ -1,0 +1,17 @@
+HTML NOTES
+-----------------------
+Adapting the website for mobile
+- <meta name="viewport" content="width=device-width, initial-scale=1"/>
+- This will fix webpages on mobile (https://www.w3schools.com/css/css_rwd_viewport.asp)
+
+Quick and Easy CSS
+- purecss.io has great examples for things like buttons, tables, and forms  
+
+
+Tables
+- Caption can be used to add a note above the table, must be the first child of the table tag
+- <col> and <colgroup> can be used to set rules for particular columns or column groups
+
+
+JS NOTES
+-----------------------

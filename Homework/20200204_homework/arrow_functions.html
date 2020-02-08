@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+    <head>    
+
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta type="shortcut icon" type="image/x-icon" href="">
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+        <script>
+        
+            // Question 1
+            // function addOne(value) { return (1 + value); }
+            const addOne = value => {return (1 + value)};
+
+            // Question 2
+            // function returnPair(evenVal) { return { evenVal: evenVal, oddVal: evenVal+1};}
+            const returnPair = evenVal => {
+                evenVal % 2 == 0 ? null : console.log("You promised me an even number!");
+                return {"evenVal": evenVal, "oddVal": evenVal+1};
+            }
+
+            // Question 3
+            // function sum(a,b) { return (a+b); };
+            const sum = (a,b) => {return (a+b);}
+
+            // Question 4
+            // function double(val) { return (val * val); }
+            const double = val => {return (val * val)};
+
+
+            // Tests
+            const testFunctions = () => {
+                document.getElementById("addOne_test").innerHTML = `addOne(5) returns: ${addOne(5)}`;
+                document.getElementById("returnPair_test").innerHTML = `returnPair(4) returns: ${JSON.stringify(returnPair(4))}`; 
+                document.getElementById("sum_test").innerHTML = `sum(4,5) returns: ${sum(4,5)}`;
+                document.getElementById("double_test").innerHTML = `double(4) returns: ${double(4)}`
+            }
+
+        </script>
+    </head>
+    <body>
+        <button onClick="testFunctions()">Test Functions</button>
+        <div id="addOne_test"></div>
+        <div id="returnPair_test"></div>
+        <div id="sum_test"></div>
+        <div id="double_test"></div>
+    </body>
+</html>

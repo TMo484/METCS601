@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>randomNumGame!</title>
+
+  <style>
+    .center_item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .full_width {
+      width: 100%;
+    }
+  </style>
+
+  <script>
+
+    let guessesRemaining = 0;
+    let winningNum = null;
+    let gameInProgress = 0;
+
+    function randomNum() {
+        return Math.ceil(Math.random() * 65)
+    }
+
+    function startGame() {
+      gameInProgress = 1
+      guessesRemaining = 3
+      winningNum = randomNum()
+      document.getElementById("startGame").innerHTML = "Reset Game"
+      document.getElementById("guessesRemaining").innerHTML = `Guesses Remaining: ${guessesRemaining}`
+    }
+
+    function makeGuess() {
+      let guessValue = document.getElementById("guessInput").value
+
+      if(guessesRemaining > 0 && gameInProgress == 1) {
+        let response = ""
+        guessesRemaining -= 1
+
+        if(guessValue == winningNum) {
+          response += "You Win!"
+          gameInProgress = 0;
+        } else {
+          response += "Incorrect Guess"
+        }
+
+        if (guessesRemaining > 0) {
+          response += ` // Guesses Remaining: ${guessesRemaining}`
+        } else {
+          response += ` // No guesses remain. Winning Number: ${winningNum}`
+          gameInProgress = 0;
+        }
+        document.getElementById("guessesRemaining").innerHTML = response
+      }
+    }
+
+  </script>
+</head>
+<body>
+    <div class="center_item"><button id="startGame" onclick="startGame()">Start Game!</button></div>
+    <h3 id="guessesRemaining" style="text-align: center;">Hit Start!</h3>
+    <input class="full_width" type="text" id="guessInput">
+    <div class="center_item"><button id="makeGuess" onclick="makeGuess()">Make Guess</button></div>
+</body>
+
+</html>

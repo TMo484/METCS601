@@ -1,0 +1,16 @@
+01/28/2020 Notes:
+
+-- In order to send data to the server, we need to include an id with the element
+-- Data is sent using the POST method on Forms
+
+
+-- Functional expression are the same as declarations
+-- When using the document.querySelector you can use:
+---- "#***" to select an id
+---- ".***" to select a class
+---- "***" to select a name
+
+-- document.querySelector has equivalent functions:
+---- "document.getElementById()" to select an id
+---- "document.getElementsByClass()" to select a class (this returns an array)
+---- "document.getElementsByName()" to select a name (this returns an array)

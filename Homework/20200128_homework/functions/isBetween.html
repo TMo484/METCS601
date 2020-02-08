@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>isBetween!</title>
+  <script>
+
+        function isBetween(value=-1) {
+            let guessNumInput = document.getElementById("guess_num").value;
+            
+            if(!guessNumInput){
+                document.getElementById("result").innerHTML = "You didn't enter any value!"
+            } else {
+                if(guessNumInput == -1){
+                    document.getElementById("result").innerHTML = "You can't expect -1 to be between 18 & 24!"
+                } else {
+                    if(guessNumInput >= 18 && guessNumInput <= 24) {
+                        document.getElementById("result").innerHTML = "It is between 18 and 24 (inclusive)!"
+                    } else {
+                        document.getElementById("result").innerHTML = "That value is not between 18 and 24 (inclusive)!"
+                    }    
+                }
+            }
+        }
+
+  </script>
+</head>
+<body>
+    <h3 id="result" style="text-align:center;">Make a Guess!</h3>
+    <div style="align-self: center;">
+        <input id="guess_num" value=-1 style="width:89%">
+        <button id="check" onclick="isBetween()" style="width:10%">Check Number!</button>
+    </div>
+</body>
+
+</html>
