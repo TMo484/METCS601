@@ -7,15 +7,53 @@
         <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
         <script>
 
-            
+            function checkIsNumber(value) {
+                 return !(Number.isNaN(value) || value == "" || value == 0)
+            }
+
+            function checkNegativeNumber(value) {
+                return (value < 0)
+            }            
+
+            const calculateFactorial = (number) => {
+                if(checkIsNumber(number)) {
+                    if(number == 1) { return 1 }
+                    else { return calculateFactorial(number - 1) * number }
+                }
+            }
 
             // Tests
-            const testFunctions = () => {
+            const runFactorial = () => {
+                let value = document.getElementById("factorialSeed").value
+                let response = ""
+                
+                if (checkNegativeNumber(value)) { response = "Factorials of negative numbers aren't real! (They're complex!)" }
+                else if (checkIsNumber(value)) { response += `${value}! = ${calculateFactorial(value)}` } 
+                else { response += "Not a valid input."}
+
+                document.getElementById("result").innerHTML = response
             }
 
         </script>
+        <style>
+
+            body {
+                display: flex;
+                justify-content: center;
+            }
+
+            div {
+                text-align: center;
+            }            
+
+        </style>
     </head>
     <body>
-        <button onClick="testFunctions()">Test Functions</button>
+        <div>
+            <div><h3>Enter a number below to calculate factorials!</h3></div>
+            <input type="number" id="factorialSeed"/>
+            <button onClick="runFactorial()">Calculate Factorial</button>
+            <div id="result"></div>
+        </div>
     </body>
 </html>
