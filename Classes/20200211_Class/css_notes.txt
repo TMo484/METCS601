@@ -1,0 +1,5 @@
+** CSS Notes **
+- CSS uses cascades to determine which values should be shown
+    - Inline is more important than Embedded which is more important than Linked
+- the !important tag can be used to trump all of these values
+    - 

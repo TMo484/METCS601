@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<head>
+    <title>CSS Homework!</title>
+    <style>
+        /* Question 1  */
+        .border_darkblue {
+            border: 2px dashed darkblue;
+        }
+
+        .circular {
+            height: 20vw;
+            width: 20%;
+            border-radius: 50%;
+        }
+
+        /* Question 2 */
+        .vertical_bar{
+            height: 10vh;
+            width: 20%;
+        }
+
+        /* Colors for all questions */
+
+        .blue {
+            background-color: blue
+        }
+
+        .red {
+            background-color: red
+        }
+
+        .yellow {
+            background-color: gold
+        }
+
+        .green {
+            background-color: green
+        }
+
+        .purple {
+            background-color: purple
+        }
+
+        section[title="question2"] div, section[title="question1"] div {
+            float: left;
+        }
+
+        /* Question 3 */
+        .spellingError {
+            background-color: darkred;
+            color:white;
+        }
+
+        .important:hover {
+            cursor:grab
+        }
+
+    </style>
+</head>
+<body>
+    <section title="question1">
+        <div class="circular blue"></div>
+        <div class="circular red"></div>
+        <div class="circular yellow"></div>
+        <div class="circular green"></div>
+        <div class="circular purple"></div>
+    </section>
+
+    <section title="question2">
+        <div class="vertical_bar blue"></div>
+        <div class="vertical_bar red"></div>
+        <div class="vertical_bar yellow"></div>
+        <div class="vertical_bar green"></div>
+        <div class="vertical_bar purple"></div>
+    </section>
+
+    <section title="question3">
+        <p><span class="spellingError">Theer</span> is a spelling error here</p>
+        <p>Sometimes, I <span class="spellingError">mispeel</span> things on purpose</p>
+        <p><span class="spellingError">Theer</span> is a spelling error here</p>
+        <p><span class="spellingError">Theer</span> is a spelling error here</p>
+        <p><span class="spellingError">Theer</span> is a spelling error here</p>
+    </section>
+
+    <section title="question4">
+        <p>Try to find the <span class="important">important</span> span in this sentence.</p>
+    </section>
+
+</body>
