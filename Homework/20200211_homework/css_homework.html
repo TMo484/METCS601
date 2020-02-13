@@ -1,25 +1,11 @@
 <!DOCTYPE html>
 <head>
+    <link href="https://fonts.googleapis.com/css?family=Lemonada&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Galada&display=swap" rel="stylesheet">
     <title>CSS Homework!</title>
     <style>
-        /* Question 1  */
-        .border_darkblue {
-            border: 2px dashed darkblue;
-        }
 
-        .circular {
-            height: 20vw;
-            width: 20%;
-            border-radius: 50%;
-        }
-
-        /* Question 2 */
-        .vertical_bar{
-            height: 10vh;
-            width: 20%;
-        }
-
-        /* Colors for all questions */
+        /* Supporting colors */
 
         .blue {
             background-color: blue
@@ -41,9 +27,31 @@
             background-color: purple
         }
 
-        section[title="question2"] div, section[title="question1"] div {
+        section[title="question2"] div, section[title="question1"] div, section[title="question6"] div {
             float: left;
         }
+
+        .clear_float {
+            clear: both;
+        }
+
+        /* Question 1  */
+        .border_darkblue {
+            border: 2px dashed darkblue;
+        }
+
+        .circular {
+            height: 20vw;
+            width: 20%;
+            border-radius: 50%;
+        }
+
+        /* Question 2 */
+        .vertical_bar{
+            height: 10vh;
+            width: 20%;
+        }
+
 
         /* Question 3 */
         .spellingError {
@@ -51,8 +59,44 @@
             color:white;
         }
 
+        /* Question 4 */
         .important:hover {
             cursor:grab
+        }
+
+        /* Question 5 */
+        span + span {
+            border: 1px solid red;
+        }
+
+        /* Question 6 */
+        .block1 {
+            height: 100px;
+            width: 100px;
+        }
+
+        .block2 {
+            height: 50px;
+            width:50px;
+        }
+
+        /* Question 7 */
+        .lemonada {
+            font-family: 'Lemonada', cursive;
+        }
+
+        .galada {
+            font-family: 'Galada', cursive;
+        }
+
+        /* Question 8 */
+        .sized_image {
+            height: 15vw;
+            width: 25vw;
+        }
+
+        .dotted_red_border {
+            border: 2px dotted darkred;
         }
 
     </style>
@@ -77,13 +121,48 @@
     <section title="question3">
         <p><span class="spellingError">Theer</span> is a spelling error here</p>
         <p>Sometimes, I <span class="spellingError">mispeel</span> things on purpose</p>
-        <p><span class="spellingError">Theer</span> is a spelling error here</p>
-        <p><span class="spellingError">Theer</span> is a spelling error here</p>
-        <p><span class="spellingError">Theer</span> is a spelling error here</p>
+        <p>Currently, I am learning how to <span class="spellingError">wriet</span> CSS</p>
+        <p>This question is <span class="spellingError">designed</span> to act like a spell checker</p>
+        <p>This is one last <span class="spellingError">exmaple</span></p>
     </section>
 
     <section title="question4">
         <p>Try to find the <span class="important">important</span> span in this sentence.</p>
+    </section>
+
+    <section title="question5">
+        <span>This collection of sentences is a group of spans.</span>
+        <span>You can tell because of the red border.</span>
+        <span>CSS is fun!</span>
+    </section>
+
+    <section title="question6">
+        <div>
+            <div class="block1 blue">
+                These blocks use
+            </div>
+            <div class="block2 yellow">
+                float
+            </div>
+        </div>
+    </section>
+
+    <section title="question7">
+        <div class="clear_float">
+            <h4 class="lemonada">I choose Lemonada Font because Sriracha was a bit too spicy!</h4>
+            <h4 class="galada">This one is fun too!</h4>
+        </div>
+    </section>
+
+    <section>
+        <div>
+            <img src="https://images2.minutemediacdn.com/image/upload/c_crop,h_1192,w_2122,x_0,y_74/f_auto,q_auto,w_1100/v1575329078/shape/mentalfloss/609640-gettyimages-802480150.jpg" 
+                alt="Picture of dog in leaves" 
+                class="sized_image"/>
+            <img src="https://images2.minutemediacdn.com/image/upload/c_crop,h_1192,w_2122,x_0,y_74/f_auto,q_auto,w_1100/v1575329078/shape/mentalfloss/609640-gettyimages-802480150.jpg" 
+                alt="Picture of dog in leaves" 
+                class="sized_image dotted_red_border"/>
+        </div>
     </section>
 
 </body>
