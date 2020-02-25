@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Extra Credit!</title>
+    <script>
+
+        function iterateTenTimes() {
+            for(let i=1; i<=10; i++){
+                document.getElementById('iterationValue').innerHTML = i;
+            }
+        }
+
+    </script>
+    <style>
+
+        /* Question 1 */
+        /* Thanks to CSS-tricks.com for helping me out with this one */
+        .triangle {
+            position: relative;
+            width: 0px;
+            height: 0px;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 100px solid red;
+        }
+
+        .triangle-text {
+            position: absolute;
+            top: 25px;
+        }
+
+        /* Question 2 */
+        .ten-percent-text {
+            width: 10%;
+        }
+
+        .ten-percent-text::first-line {
+            font-weight: bold;
+            color: darkblue;
+        }
+
+        /* Question 3 */
+        .flex {
+            display: flex;
+            align-items: center;
+        }
+
+        .dog-pic {
+            width: 400px;
+            height: auto;
+        }
+
+        /* Question 4 */
+        div[type="block"] {
+            display: flex;
+            text-align: center;
+            height: 100px;
+            width: 100px;
+            background-color: blue;
+        }
+
+        .hover-block:hover {
+            background-color: gold;
+        }
+
+        /* Question 5 */
+        [title~="animal"] {
+            font-weight: bold;
+            color: green;
+        }
+
+        li+li {
+            border-top: 1px solid black
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Question 1 -->
+    <h4>Question 1: I used the "border hack" to get the CSS triangle; and relative position to get the text in the center</h4>
+    <div class="triangle">
+        <h6 class="triangle-text" id="iterationValue">0</h6>
+    </div>
+    <button onClick="iterateTenTimes()">Iterate 10 Times</button>
+
+    <!-- Question 2 -->
+    <h4>Question 2: I used psuedo-class selector to make the ::first-line bold and dark blue</h4>
+    <p class="ten-percent-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda, ipsam deleniti aperiam molestiae, odio accusamus nesciunt sed officia laudantium unde maiores perferendis debitis nihil dolorem veritatis? Ducimus saepe magnam totam!</p>
+    <p class="ten-percent-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda, ipsam deleniti aperiam molestiae, odio accusamus nesciunt sed officia laudantium unde maiores perferendis debitis nihil dolorem veritatis? Ducimus saepe magnam totam!</p>
+
+    <!-- Question 3 -->
+    <h4>Question 3: I used Flex to get the 4-sentence div to align vertically with the image</h4>
+    <div class="flex">
+        <img class="dog-pic" src="https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2019/02/dog-451643.jpg?h=bf654dbc&itok=MQGvBmuo" alt="Dog ready to play in the leaves"/>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum autem molestias commodi natus dolorum aliquam, nobis nostrum molestiae repellat. Aliquid in corporis delectus iusto? Ad ipsum temporibus ipsam ea laboriosam!</div>
+    </div>
+
+    <!-- Question 4 -->
+    <h4>Question 4: This block has a pseudo-class selector in conjunction with an attribute selector</h4>
+    <div class="hover-block" type="block">Hover on the block!</div>
+
+    <!-- Question 5 -->
+    <h4>Question 5: Bullets with animal title are green; adjacent li have a top border</h4>
+    <ul>
+        <li title="animal dog">Dog</li>
+        <li title="animal cat">Cat</li>
+        <li title="fish trout">Trout</li>
+    </ul>
+
+</body>
+</html>
