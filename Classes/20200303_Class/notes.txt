@@ -1,0 +1,10 @@
+-- Javascript is not strongly typed, meaning you can add multiple data types to a single array
+
+
+-- Maps are like arrays with keys
+---- They are very similar to Object literals
+-- You must use new Map()
+-- WeakMaps are garbage collected; Maps are not (which can be a problem for memory)
+
+-- Sets are very similar to Maps
+---- You cannot put duplicate entries into Sets 

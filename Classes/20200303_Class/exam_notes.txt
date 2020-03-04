@@ -1,0 +1,7 @@
+-- Create a beach ball
+-- Flex the logo and title to the left and right; also resize fonts
+-- addEventListeners
+--  
+
+
+-- To validate forms, you can use onSubmit() and return true or false to send or stop the forms

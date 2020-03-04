@@ -1,0 +1,7 @@
+-- Pseudo-Selectors should use double colons (::); historically they only had one (:), but this is only for backward compatibility
+-- You can only use one pseudo-selector per 
+
+-- Once done with using float, you need to clear the value
+---- If you use float to get two block elements next to each other, then you have to use the float: clear; to ensure the elements become block again
+
+-- FLOATING WILL BE ON THE MIDTERM --

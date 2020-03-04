@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Week 7: Arrays</title>
+        <meta charset="utf-8"/>
+        <script>
+            // let names = [7, "Andrew", new Promise()];
+            // let ages = [];
+
+            let inputs = [];
+            
+            function logInput() {
+                inputs.push(document.getElementById("target").value)
+                console.log(inputs)
+            }
+
+            function pop() {
+                console.log(inputs.pop())
+            }
+
+        </script>
+    </head>
+    <body>
+        <h1>Please enter a value below:</h1> 
+        <input type="text" id="target"/>
+        <button id="pop">Pop</button>
+
+        <script>
+            document.getElementById("pop").addEventListener("click", pop)
+            document.getElementById("target").addEventListener("blur", logInput)
+        </script>
+    </body>
+
+</html>
