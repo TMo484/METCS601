@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Favorite Items!</title>
+        <meta charset="utf-8">
+
+        <script>
+
+            let favoritesArray = [];
+
+            function addFavorite(item) {
+                if(item) {
+                    favoritesArray.push(item)
+                }
+            }
+
+            function showFavorites() {
+                favoritesList = []
+                favoritesArray.forEach(item => {
+                    favoritesList.push(`<li>${item}</li>`)
+                })
+                document.getElementById("favoritesList").innerHTML = favoritesList.join('')
+            }
+
+            function clearFavorites() {
+                favoritesArray = []
+            }
+
+        </script>
+        <style>
+
+            h3 {
+                margin: 0px;
+                text-align: center;
+            }
+            
+            input {
+                margin: 2px;
+            }
+
+            .container {
+                padding: 5px;
+                display:flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h3>What are your favorite things in life?</h3>
+            <input type="text" id="favoriteItem"/>
+            <button id="addToFavorites">Add to Favorites!</button>
+        </div>
+        <div class="container">
+            <button id="showFavorites">Show Favorites!</button>
+        </div>
+        <div class="container">
+            <ul id="favoritesList">
+
+            </ul>
+        </div>
+        <div class="container">
+            <button id="clearFavorites">Clear Favorites</button>
+        </div>
+
+        <script>
+            document.getElementById("addToFavorites").addEventListener("click", () => {
+                favItemElement = document.getElementById("favoriteItem")
+                addFavorite(favItemElement.value)
+                favItemElement.value = ""
+            })
+
+            document.getElementById("showFavorites").addEventListener("click", () => {
+                showFavorites()
+            })
+
+            document.getElementById("clearFavorites").addEventListener("click", () => {
+                clearFavorites()
+                showFavorites()
+            })
+        </script>
+    </body>
+</html>
