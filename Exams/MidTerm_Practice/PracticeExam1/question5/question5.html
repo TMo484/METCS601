@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Question #5!</title>
+        <meta charset="utf-8">
+        <style>
+            .paragraph {
+                cursor: pointer;
+            }
+
+            #elementHidden {
+                color: transparent;
+                border: 1px dotted blue;
+            }
+        </style>
+    </head>
+    <body>
+        <p class="paragraph" id="elementShown">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis assumenda doloribus laboriosam cupiditate optio commodi illo labore impedit atque magni totam sunt fuga distinctio, rem ad nam. Maxime, nisi ad.</p>
+        <p class="paragraph" id="elementShown">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis assumenda doloribus laboriosam cupiditate optio commodi illo labore impedit atque magni totam sunt fuga distinctio, rem ad nam. Maxime, nisi ad.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis assumenda doloribus laboriosam cupiditate optio commodi illo labore impedit atque magni totam sunt fuga distinctio, rem ad nam. Maxime, nisi ad.</p>
+        <p class="paragraph" id="elementShown">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis assumenda doloribus laboriosam cupiditate optio commodi illo labore impedit atque magni totam sunt fuga distinctio, rem ad nam. Maxime, nisi ad.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis assumenda doloribus laboriosam cupiditate optio commodi illo labore impedit atque magni totam sunt fuga distinctio, rem ad nam. Maxime, nisi ad.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis assumenda doloribus laboriosam cupiditate optio commodi illo labore impedit atque magni totam sunt fuga distinctio, rem ad nam. Maxime, nisi ad.</p>
+        <p class="paragraph" id="elementShown">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis assumenda doloribus laboriosam cupiditate optio commodi illo labore impedit atque magni totam sunt fuga distinctio, rem ad nam. Maxime, nisi ad.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis assumenda doloribus laboriosam cupiditate optio commodi illo labore impedit atque magni totam sunt fuga distinctio, rem ad nam. Maxime, nisi ad.</p>
+        <p class="paragraph" id="elementShown">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis assumenda doloribus laboriosam cupiditate optio commodi illo labore impedit atque magni totam sunt fuga distinctio, rem ad nam. Maxime, nisi ad.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis assumenda doloribus laboriosam cupiditate optio commodi illo labore impedit atque magni totam sunt fuga distinctio, rem ad nam. Maxime, nisi ad.</p>
+    
+        <script>
+            let paragraphs = document.getElementsByClassName("paragraph")
+            for (let i=0; i<paragraphs.length||0; i++) {
+                paragraphs[i].addEventListener("click", (elem) => {
+                    elem.target.id = elem.target.id === "elementShown" ? "elementHidden" : "elementShown"
+                })
+            }
+        </script>
+    </body>
+</html>

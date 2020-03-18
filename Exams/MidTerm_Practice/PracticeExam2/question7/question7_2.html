@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Question #7!</title>
+        <meta charset="utf-8">
+
+        <script>
+
+        </script>
+        <style>
+            form {
+                display: flex;
+                flex-direction: column;
+            }
+
+            h1 {
+                margin: 5px;
+            }
+            
+            input, textarea {
+                margin: 5px;
+                color: grey;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            input:invalid, textarea:invalid {
+                border: 2px solid red;
+            }
+
+            textarea {
+                height: 200px;
+            }
+
+            button {
+                color: whitesmoke;
+                background-color: green;
+                width: 10vw;
+                min-width: 125px;
+            }
+
+            .invalid_entry {
+                border: 2px solid red;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <form onsubmit="return checkForm()" method="post" action="/otherpage.html">
+            <h1>Contact Form</h1>
+            <input type="text" id="name" name="name" placeholder="Name" required/>
+            <input type="email" id="email" name="email" placeholder="Email" required/>
+            <input type="text" id="subject" name="subject" placeholder="Subject" required/>
+            <textarea id="Message" name="name" placeholder="Massage" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </body>
+</html>

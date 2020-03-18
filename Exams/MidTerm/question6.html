@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Question #6!</title>
+        <meta charset="utf-8">
+
+        <script>
+
+        </script>
+        <style>
+            h1 {
+                color:green
+            }
+
+            .classSelector {
+                font-style:italic
+            }
+
+            .classSelector:hover {
+                background-color:blue
+            }
+
+            #idSelector {
+                font-size:60px;
+            }
+
+            #idSelector + #idSelector {
+                border: 1px solid purple;
+            }
+
+            h4 > span {
+                color: red;
+            }
+
+            h5[class^="startsWith"] {
+                font-style: italic;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Tag Selector</h1>
+        <h2 class="classSelector">Class Selector with Hover</h2>
+        <h3 id="idSelector">ID Selector</h3>
+        <h3 id="idSelector">Adjacent ID Selector</h3>
+        <h4><span>Child Selector</span></h4>
+        <h5 class="startsWithThis">Tag selector with "Class Starts with"</h5>
+    </body>
+</html>

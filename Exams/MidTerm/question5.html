@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Question #5!</title>
+        <meta charset="utf-8">
+
+        <script>
+
+        </script>
+        <style>
+            .flex {
+                display: flex;
+                align-items: center;
+            }
+
+            .field {
+                width: 100px;
+                margin: 5px;
+            }
+
+            .reqStar {
+                color: red
+            }
+
+            .animal {
+                width: 50vw;
+            }
+
+            textarea {
+                overflow-y: scroll;
+                height: 100px;
+                resize: none;
+            }
+
+            section {
+                border: 1px solid lightgrey;
+                border-radius: 5px;
+                margin: 15px 0 15px 0;
+                width: 700px;
+            }
+
+            h1, h3, h5 {
+                margin: 0;
+            }
+
+            .inputField {
+                width: 250px;
+            }
+
+            .section, h3 {
+                padding: 0 0 0 15px;
+            }
+
+            h3 {
+                position: relative;
+                top: -10px;
+            }
+
+            span {
+                background-color: white;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>Zoo Keeper Application Form</h1>
+        <h4>Please complete the form. Mandatory fields are marked with a <span class="reqStar">*</span></h4>
+        <form method="post">
+            <section>
+                <h3><span>Contact Details</span></h3>
+                <div class="section">
+                    <div class="flex">
+                        <h5 class="field">Name<span class="reqStar">*</span></h5>
+                        <input type="text" name="name" class="inputField" required/>
+                    </div>
+                    <div class="flex">
+                        <h5 class="field">Telephone</h5>
+                        <input type="number" name="phone" class="inputField"/>
+                    </div>
+                    <div class="flex">
+                        <h5 class="field">Email<span class="reqStar">*</span></h5>
+                        <input type="email" name="email" class="inputField" required/>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3><span>Personal Information</span></h3>
+                <div class="section">
+                    <div class="flex">
+                        <h5 class="field"><span class="reqStar">*</span>Age</h5>
+                        <input type="number" name="age" class="inputField" required/>
+                    </div>
+                    <div class="flex">
+                        <h5 class="field">Gender</h5>
+                        <select type="number" name="gender" class="inputField">    
+                            <option value="female">Female</option>
+                            <option value="male">Male</option>    
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="flex">
+                        <h5 class="field">When did you first know you wanted to be a zookeeper?</h5>
+                        <textarea name="firstDesire" class="inputField"></textarea>
+                    </div>
+                </div>
+            </section>
+            <section class="section">
+                <h3><span>Pick Your Favorite Animals</span></h3>
+                <div class="flex">
+                    <div class="flex animal">
+                        <input type="checkbox" name="zebra"/>
+                        <h5>Zebra</h5>
+                    </div>
+                    <div class="flex animal">
+                        <input type="checkbox" name="zebra"/>
+                        <h5>Cat</h5>
+                    </div>
+                    <div class="flex animal">
+                        <input type="checkbox" name="zebra"/>
+                        <h5>Anaconda</h5>
+                    </div>
+                    <div class="flex animal">
+                        <input type="checkbox" name="zebra"/>
+                        <h5>Human</h5>
+                    </div>
+                    <div class="flex animal">
+                        <input type="checkbox" name="zebra"/>
+                        <h5>Elephant</h5>
+                    </div>
+                    <div class="flex animal">
+                        <input type="checkbox" name="zebra"/>
+                        <h5>Wildebeast</h5>
+                    </div>
+                    <div class="flex animal">
+                        <input type="checkbox" name="zebra"/>
+                        <h5>Pigeon</h5>
+                    </div>
+                    <div class="flex animal">
+                        <input type="checkbox" name="zebra"/>
+                        <h5>Crab</h5>
+                    </div>
+                </div>
+            </section>
+            <button type="submit">Submit Application</button>
+        </form>
+    </body>
+</html>

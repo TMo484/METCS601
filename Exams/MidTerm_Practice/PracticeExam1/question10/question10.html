@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Question #10!</title>
+        <meta charset="utf-8">
+
+        <script>
+            function checkDates() {
+                const departureDate = document.getElementById("departureDate").value
+                const returnDate = document.getElementById("returnDate").value
+                let daysBetween = (new Date(returnDate) - new Date(departureDate)) / (24 * 60 * 60 * 1000)
+                let resultElem = document.getElementById("result")
+                if(daysBetween < 0) {
+                    resultElem.innerHTML = "It appears your dates are inverted. Please correct"
+                } else if (daysBetween === 0) {
+                    resultElem.innerHTML = "It appears you are coming back on the same day as your departure. Please make sure this is correct"
+                } else if (daysBetween > 365) {
+                    resultElem.innerHTML = "It appears your travel is greater then 1 year. Please make sure this is correct."
+                } else if (daysBetween > 30) {
+                    resultElem.innerHTML = "You have a 30+ day duration. Please make sure your dates are correct"
+                } else if (daysBetween > 0) {
+                    resultElem.innerHTML = "Enjoy your trip!"
+                }
+            }
+        </script>
+        <style>
+            .container {
+                display: flex;
+            }
+            
+            h5 {
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div>
+                <h5>Departing on..</h5>
+                <input type="date" id="departureDate" name="departureDate"/>
+            </div>
+            <div>
+                <h5>Returning on..</h5>
+                <input type="date" id="returnDate" name="returnDate"/>
+            </div>
+        </div>
+        <h3 id="result">Please select both a Departure & Return Date</h3>
+
+        <script>
+            document.getElementById("departureDate").addEventListener("blur", checkDates)
+            document.getElementById("returnDate").addEventListener("blur", checkDates)
+        </script>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Question #6!</title>
+        <meta charset="utf-8">
+
+        <script>
+            function funcDeclarationClick() {
+                alert("this is a function declaration")
+            }
+
+            let funcAssignmentClick = () => {
+                alert("this is a function assignment")
+            }
+        </script>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <button id="funcDeclaration">This is a function declaration</button>
+        <button id="funcAssignment">This is a function assignment</button>
+        <button id="funcAnonymous">This is an anonymous function</button>
+        <button id="funcArrow">This is an arrow function</button>
+    </body>
+
+    <script>
+        document.getElementById("funcDeclaration").addEventListener("click", funcDeclarationClick);
+        document.getElementById("funcAssignment").addEventListener("click", funcAssignmentClick);
+        document.getElementById("funcAnonymous").addEventListener("click", function() {
+            alert("this is an anonymous function")
+        });
+        document.getElementById("funcArrow").addEventListener("click", () => {
+            alert("this is an arrow function")
+        })
+        
+    </script>
+</html>

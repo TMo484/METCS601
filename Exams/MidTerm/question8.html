@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Question #8!</title>
+        <meta charset="utf-8">
+
+        <script>
+
+        </script>
+        <style>
+            * {
+                color: whitesmoke;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                font-size: 20px;
+                background-color: peachpuff
+            }
+
+            header, footer {
+                height: 10vh;
+                background-color: skyblue;
+                align-items: center;
+                justify-content: center;
+                margin: 1vh 1vw;
+            }
+
+            .flex {
+                display: flex;
+            }
+
+            section {
+                justify-content: space-evenly;
+                align-items: flex-end;
+                margin: 1vh 1vw;
+            }
+
+            .width-25 {
+                width: 25vw;
+                height: 80vh;
+                background-color: teal;
+            }
+
+            .width-75 {
+                width: 75vw;
+                height: 80vh;
+                background-color: salmon
+            }
+
+            .image {
+                background-color: lightgray;
+                height: 20vh;
+                width: 20vw;
+                margin: 1vh 1vw;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .article {
+                width: 75vw;
+                margin: 1vh 1vw;
+            }
+
+            aside {
+                align-items: center;
+                justify-content: center;
+                margin: 1vh 1vw;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="flex">
+            Header
+        </header>
+        <div class="flex">
+            <aside class="width-25 flex">
+                Aside
+            </aside>
+            <section class="width-75 flex">
+                <div class="image flex">Image</div>
+                <div class="image flex">Image</div>
+                <div class="image flex">Image</div>
+            </section>
+        </div>
+        <footer class="flex">
+            Footer
+        </footer>
+
+    </body>
+</html>

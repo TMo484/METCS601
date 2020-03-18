@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Question #10!</title>
+        <meta charset="utf-8">
+
+        <script>
+
+            function changeCircle() {
+                let redValue = document.getElementById("red").value
+                let blueValue = document.getElementById("blue").value
+                let greenValue = document.getElementById("green").value
+
+                document.getElementById("circle").style.backgroundColor = `rgb(${redValue}, ${greenValue}, ${greenValue})`
+            }
+            
+            function clearSelection() {
+                document.getElementById("red").value = 0
+                document.getElementById("blue").value = 0 
+                document.getElementById("green").value = 0
+
+                document.getElementById("circle").style.backgroundColor = `rgb(255,255,255)`
+            }
+
+            document.addEventListener("DOMContentLoaded", () => {
+                listItems = []
+                for (let i=0; i<=255; i++) {
+                    listItems.push(`<option value=${i}>${i}</option>`)
+                }
+
+                const selectList = ['red', 'blue', 'green']
+
+                selectList.forEach(dropdown => {
+                    document.getElementById(dropdown).innerHTML = listItems.join("")
+                })
+
+                document.getElementById("changeColorButton").addEventListener("click", changeCircle)
+                document.getElementById("clearSelectionButton").addEventListener("click", clearSelection)
+            })
+        </script>
+        <style>
+            .circle {
+                width: 150px;
+                height: 150px;
+                border: 1px solid black;
+                border-radius: 50%;
+                margin: 25px 0 25px 0;
+            }
+
+        </style>
+    </head>
+    <body>
+        <select id='red'></select>
+        <select id="blue"></select>
+        <select id="green"></select>
+
+        <div class="circle" id="circle"></div>
+
+        <button id="changeColorButton">Change Colors</button>
+        <button id="clearSelectionButton">Clear Selection</button>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Question #3!</title>
+        <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Mountains+of+Christmas&display=swap" rel="stylesheet">
+        <style>
+            h1 {
+                font-family: 'Mountains of Christmas', cursive;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="daysLeft">Unfortunately, the number of days left in my amazing semester at Boston University is ...</h1>
+        <h4>... this is assuming an end date of 5/5/2020... but who knows now-a-days</h4>
+    </body>
+    <script>
+
+        let today = Date.now()
+        let endOfSemester = Date.parse("5/5/2020")
+
+        let daysLeftInSemester = (endOfSemester - today) / (24 * 60 * 60 * 1000)
+
+        document.getElementById("daysLeft").innerHTML = `Unfortunately, the number of days left in my amazing semester at Boston University is ${daysLeftInSemester}`
+    </script>
+</html>

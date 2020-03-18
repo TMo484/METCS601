@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Question #7!</title>
+        <meta charset="utf-8">
+
+        <script>
+
+            function validateField(elem) {
+                if(!elem.target.value) {
+                    elem.target.setAttribute("class", "validation_field invalid_entry")
+                } else if (elem.target.name === "email" && !elem.target.value.includes("@")) {
+                    elem.target.setAttribute("class", "validation_field invalid_entry")
+                } else {
+                    elem.target.setAttribute("class", "validation_field")
+                }
+            }
+
+            function checkForm() {
+                let validationFields = document.getElementsByClassName("validation_field")
+                return false
+            }
+
+            document.addEventListener("DOMContentLoaded", () => {
+                let validationFields = document.getElementsByClassName("validation_field")
+                for (let i = 0; i < validationFields.length; i++) {
+                    validationFields[i].addEventListener("blur", validateField)
+                    validationFields[i].addEventListener("submit", () => {
+                        console.log("submitted")
+                    })
+                }
+            })
+
+        </script>
+        <style>
+            form {
+                display: flex;
+                flex-direction: column;
+            }
+
+            h1 {
+                margin: 5px;
+            }
+            
+            input, textarea {
+                margin: 5px;
+                color: grey;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            textarea {
+                height: 200px;
+            }
+
+            button {
+                color: whitesmoke;
+                background-color: green;
+                width: 10vw;
+                min-width: 125px;
+            }
+
+            .invalid_entry {
+                border: 2px solid red;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <form onsubmit="return checkForm()" method="post" action="/otherpage.html">
+            <h1>Contact Form</h1>
+            <input type="text" id="name" name="name" placeholder="Name" class="validation_field"/>
+            <input type="text" id="email" name="email" placeholder="Email" class="validation_field"/>
+            <input type="text" id="subject" name="subject" placeholder="Subject" class="validation_field"/>
+            <textarea id="Message" name="name" placeholder="Massage" class="validation_field"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Question #9!</title>
+        <meta charset="utf-8">
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <h6>Pssst... Look at the console log, or at the raw HTML file</h6>
+    </body>
+
+    <script>
+        let arr = [23, 45, 76, 1, 98, 102, 23, 45, 30, 99, 7, 18, 6, 1]
+        console.log(`The original array: ${arr}`)
+
+        let set = new Set()
+        arr.forEach(item => {
+            set.add(item)
+        })
+
+        console.log(`The new Set: ${[...set]}`)
+    </script>
+</html>

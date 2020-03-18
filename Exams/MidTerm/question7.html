@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Question #7!</title>
+        <meta charset="utf-8">
+
+        <style>
+            textarea {
+                width: 50vw;
+                height: 25vh;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <textarea id="input"></textarea>
+        </div>
+        <button id="submit">Submit Text Field</button>
+    </body>
+    <script>
+        document.getElementById("submit").addEventListener("click", () => {
+            let inputText = document.getElementById("input").value
+            let modifiedText = inputText.replace(/delete/ig, "eteled").replace(/truncate/ig, "etacnurt").replace(/update/ig, "etadpu").replace(/insert/ig, "tresni").replace(/drop/ig, "porp")
+
+            document.getElementById("input").value = modifiedText
+        })
+    </script>
+</html>

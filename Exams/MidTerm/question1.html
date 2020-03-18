@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>                          <!--moved title & icon inside of head-->
+        <title>MET CS601</title>    <!--Fixed the class number-->
+        <link type="image/icon type" rel="icon" href="https://www.bu.edu/met/wp-content/themes/flexi-met/images/boston-university-logo.gif">     <!--fixed the type and changed src to href-->
+        <!--Fixed spelling of style; moved JS code to script body (and made many assumptions about what it's doing)-->
+        <!--also, moved display up here and made an if statement in script tag; assumed visibile is default since 0 is not greater than 4.9999-->
+        <style>                      
+            h1 {
+                visibility: visible;
+            }
+        </style>
+    </head>
+    <!--Moved body tag out of head tag-->
+    <body>
+        <h1><span>Test</span></h1>  <!--Fixed closing tag of span and ordering of tags-->
+        <!--Fixed spelling of script; moved -->
+        <script>
+            let i = 0;
+            let f = 4.50;
+
+            /* assumed that [] = null was supposed to be setting a variable for storage; changed all to "a" */
+            let a = null;
+            if (a === null) {
+                a = new Array();
+            } /* removed extra curly bracket */
+            else {
+                a.push(Date.now())
+            } /* removed extra curly bracket */
+
+            if (i > 4.9999) {
+                let h1Tags = document.getElementsByTagName("h1")
+                for (let j=0; j<h1Tags.length; j++) {
+                    console.log(h1Tags[j])
+                    h1Tags[j].style.visibility = "hidden"
+                }
+            }
+
+        </script>
+    </body>
+
+</html>
