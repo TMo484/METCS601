@@ -1,0 +1,60 @@
+----- Javascript Objects -----
+-- Attributes or Functions can be added to a particular instance, or to the prototype
+-- Example:
+    const Car = function(color) {
+        this.color = color
+    }
+
+    Car.prototype.run = function() {
+        // code goes here
+    }
+
+    Car.prototype.currentSpeed = 0;
+
+-- If a request is made for a property that it does not have, it will check the prototype (and then the parents prototype, all the way up to the Object.prototype)
+-- Javascript supports classes and factory functions
+    -- Classes:
+        -- Class Declaration:
+        class Car {
+            constructor(color) {
+                this.color = color;
+            }
+
+            getColor() {
+                return this.color
+            }
+        }
+
+        -- Class Expression (also works):
+        const Car = class {
+            constructor(color) {
+                this.color = color;
+            }
+
+            getColor() {
+                return this.color
+            }
+        }
+
+    -- Factory Function:
+        function Car(color) {
+            this.color = color
+        }
+
+        Car.prototype.getColor = this.color;
+
+-- Static methods can be used to call functions without having to create a new instance
+-- Setters & Getters allow us to verify input and modify output of properties on objects
+    class Person {
+        constructor(name) {
+            this._name = name;
+        }
+
+        get name() {
+            return this._name
+        }
+
+        set name(newName) {
+            this._name = newName;
+        }
+    }

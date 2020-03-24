@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <link rel="shortcut icon" href="assets/images/bu_red_circle.ico" type="image/x-icon"/>
+        <title>
+           Employee
+        </title>
+        <script type="module">
+            import {findEmployeesByLastName, findByPhone} from './modules/employee.js';
+
+            document.addEventListener("DOMContentLoaded", (event) => {
+                document.querySelector("#lastName").addEventListener("blur", event => {
+                    const resultsEle = document.querySelector("#results");
+                    resultsEle.innerHTML = "";  // clear it. 
+
+                    const employees = findEmployeesByLastName(event.target.value); 
+                    let htmlStr = "";
+                    employees.forEach(employee => {
+                        htmlStr += `<li>${employee.name.first} ${employee.name.last}</li>`;
+                    })
+                    resultsEle.innerHTML = htmlStr;
+                });
+                
+                document.querySelector("#phone").addEventListener("blur", event => {
+                    const phoneResultEle = document.querySelector("#phoneResults");
+                    phoneResultEle.innerHTML = "";
+
+                    const employees = findByPhone(event.target.value)                    
+                    let phoneStr = "";
+                    employees.forEach(employee => {
+                        phoneStr += `<li>${employee.name.first} ${employee.name.last}`;
+                            employee.contact.phones.forEach(phone => {
+                            phoneStr += `<div class='smaller'>(${phone.type}) ${phone.number}</div>`;
+                        })
+                        phoneStr += "</li>";
+                    });
+                    phoneResultEle.innerHTML = phoneStr;
+                });
+            });
+            
+        </script>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link href="https://fonts.googleapis.com/css?family=Oxygen&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css">
+        <style>
+            * {
+                font-family: 'Oxygen', sans-serif;
+                font-size: 2vw;
+            }
+            img {
+                border: 0;
+                height: auto;
+            }
+            header {
+                margin: auto;
+                text-align: center;
+            } 
+            .blu {
+                color: darkblue;
+            }    
+            .smaller {
+                font-size: 1.3vw;
+            }     
+        </style>
+    </head>
+    <body>
+        <header>
+            <div title="Overview">Employee Search</div> 
+            <img src="assets/images/bu_red_circle.svg" alt="BU" />
+        </header>
+        <section> 
+               <h4 class="blu">Please enter the last name of the employee you wish to find</h4> 
+               <div>
+                   <input type="text" maxlength="15" id="lastName"/>
+               </div>
+        </section>
+        <section>
+            <ul id="results"></ul>
+        </section>
+        <section>
+                <h4 class="blu">Please enter a phone number</h4>
+                <div>
+                    <input type="text" maxlength="10" id="phone"/>
+                </div>
+        </section>
+        <section>
+            <ul id="phoneResults"></ul>
+        </section>        
+    </body>
+</html>

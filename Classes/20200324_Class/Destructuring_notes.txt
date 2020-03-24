@@ -1,0 +1,44 @@
+----- Destructuring -----
+-- Destructuring assignment syntax makes it possible to unpack arrays, maps, sets, or objects into distinct variables
+
+    const person = {
+        first: "Tom",
+        last: "Mori",
+        location: {
+            country: "USA",
+            city: "Boston"
+        }
+    }
+
+    const { first, last } = person;
+    const { city, country } = person.location;
+
+----- ResT and Spread -----
+-- ... represents "the rest of the arguments
+-- If nothing is passed into the ... argument, it will give an empty array
+-- You cannot use ... to put all values of an object into an array
+
+
+----- Modules -----
+-- Javascript modules can be imported via script tags
+-- You can detect what modules are getting used through browser sniffing (or feature detection)
+-- You can export functions from a modules
+    -- default export can only have one export per module
+    -- named exports can have many exports per module
+    -- non-exported functions are private to the module
+
+-- You can import modules using require()
+    -- node.js must use this!
+    const add = require('./add')
+
+-- ES6 does not need require; it can use import
+    import React from 'react'
+
+-- 'use strict' is on by default
+-- Modules cannot be conditionally imported; they must be imported in entirety
+    -- You can dynamically import modules when you need them (slide 24 in module slide deck)
+
+
+
+
+** Homework examples in the example employee module
