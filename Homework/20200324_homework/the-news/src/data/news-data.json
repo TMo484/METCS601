@@ -1,0 +1,75 @@
+{
+	"news": [
+		{
+			"caption": "Trump adopted by the Queen of Yorkshire",
+			"source": "Fox News",
+			"url": "http://www.foxnews.com",
+			"author": "Joe Mann",
+			"released": "2020-01-17 12:01:28 AM EST",
+			"story": "This is a really interesting story.  More to follow..",
+			"image": "fox"
+		},
+		{
+			"caption": "Dog for hire.  Solves crime and fluffy",
+			"source": "The Voxx",
+			"url": "https://www.washingtonpost.com/",
+			"author": "Mary Blige",
+			"released": "2019-11-17 8:21:01 PM EST",
+			"story": "Makes make hope that a dog can become President.  Hell, Trump can do it...",
+			"image": "Vox"
+		},
+		{
+			"caption": "Uncreative man tries to find news articles from Boston.com that aren't Coronavirus related",
+			"source": "Boston.com",
+			"url": "https://www.boston.com/",
+			"author": "Tom Mori",
+			"released": "2020-03-28 3:24:00 PM EST",
+			"story": "In a desperate attempt to complete his homework with some humor, local man looks to internet for stories..",
+			"image": "boston"
+		},
+		{
+			"caption": "Man licks Orange Line Subway Car",
+			"source": "Boston.com",
+			"url": "https://www.boston.com/",
+			"author": "Alyssa Trembel",
+			"released": "2019-03-31 10:00:00 AM EST",
+			"story": "This is unfortunately a real news article......",
+			"image": "boston"
+		},
+		{
+			"caption": "2020 not a great year for April Fools pranks, but people will try",
+			"source": "Boston.com",
+			"url": "https://www.boston.com/",
+			"author": "Tom Mori",
+			"released": "2019-04-01 12:01:00 AM EST",
+			"story": "Fake Coughing will not end well for pranksters",
+			"image": "boston"
+		},
+		{
+			"caption": "Boston forced to discover that Tom Brady is not the only athelete",
+			"source": "TM Times",
+			"url": "https://www.notarealnewsource.com/",
+			"author": "Alyssa Trembel",
+			"released": "2019-04-02 1:21:01 AM EST",
+			"story": "It is a trying time for Beantown as other potential quarterbacks are told 'Well, you're no Tom Brady'",
+			"image": "fakenews"
+		},
+		{
+			"caption": "GameStop employees deemed essential during crisis",
+			"source": "Boston.com",
+			"url": "https://www.boston.com/",
+			"author": "Tom Mori",
+			"released": "2019-04-03 8:21:01 PM EST",
+			"story": "Wrap hands in plastic bags... says corporate.",
+			"image": "boston"
+		},
+		{
+			"caption": "Now everyone sees that e-Sports are actually sports",
+			"source": "The Voxx",
+			"url": "https://www.washingtonpost.com/",
+			"author": "Alyssa Trembel",
+			"released": "2019-04-04 1:21:01 AM EST",
+			"story": "'We knew our time to shine was coming' says 16 year old League of Legends Legend",
+			"image": "Vox"
+		}]
+}
