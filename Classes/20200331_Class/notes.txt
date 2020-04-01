@@ -1,0 +1,195 @@
+-- AJAX --
+    - Asynchronous Javascript and XML
+    - Allows us to communicate with a server in the background
+    - Usually, you will use your client to construct a URL with parameters
+    - Then the server will respond with either a JSON object or XML
+
+    - Javascript originally was solely a client side technology
+    - Originally, if new information / content was needed, an entire page was refreshed
+    
+    - There are many different server sided languages (Java, PHP, Node, python)
+         - Client does not care what language is used, it just needs a response in a format that can be parsed
+
+    - Same-Origin Policy
+        - You can't ask for data that started from another domain
+        - You can go around this with API Keys (basically, you pay to gain access)
+    - Cross-origin resource sharing
+        - When a server allows another domain to access data
+        - Developer APIs typically use keys, tokens, or values
+
+    - Typical API response types:
+        - JSON
+        - XML
+        - HTML
+        - Text
+
+    - XHR (XMLHTTPRequest) Object
+        - Original method for accessing APIs
+    - Fetch
+        - New method for accessing APIs
+
+-- jQuery -- 
+    - jQuery is essentially an API (a layer) to abstract out some of the differences between browsers
+        - IE used .attachEvent and Netscape used .addEventListener
+    - Using jQuery requires importation of the module (either in the JS file or within the HTML)
+    - Common Request Methods:
+        - GET: Obtain data to pull into webpage
+        - POST: Send data to the server (new data; i.e. CREATE)
+        - PUT / PATCH: Update data on the server
+        - DELETE: Delete data from the server
+    - Data Types:
+        - Text
+        - HTML
+        - Script (don't really use this)
+        - JSONP: transporting JSON across domains
+        - XML
+    
+    - Asynchronous functions means that the request asks for data, and takes a callback function to invoke when the request returns data
+    - JSON vs. JSONP
+        - JSONP is just a JSON object within a function
+
+    - $.ajax() is the core method that jQuery uses
+        - Typical object used in $.ajax():
+            {
+                url: "post.php",    <- The location of the server
+                data: {             <- The data to be passed through to the server
+                    id: 123
+                },
+                type: "GET",        <- The type of request 
+                dataType: "json"    <- The data type that we expect back
+            }
+    - $.ajax({ ... })
+        .done(function(json) {
+            ...                                     <- What to do when the request completes successfully
+        })
+        .fail(function(xhr, status, errorThrown) {
+            ...                                     <- What to do if the request fails
+        })
+        .always(function()) {
+            ...                                     <- What to do when either the request succeed OR fails
+        }
+    
+    - $.ajax() Options:
+        - async: Set to false when you want to fire synchronously; and block execution of other code until response is received
+        - cache: Use a cached resposne if available; defaults to true (except for "script" and "jsonp" data types)
+        - context: The scope in which the callback function should run (i.e. what "this" means; by default it will be the context that called the $.ajax())
+
+    - Shorthand functions:
+        - $.get() and $.post()
+        - Very similar to $.ajax()
+
+    - Serialize()
+        - Turns a form's data into a query string automatically
+
+    - $("...")
+        .ajaxStart(function() {
+            ...                     <- What to do when an AJAX request is initiated
+        })
+        .ajaxStop(function() {
+            ...                     <- What to do when an AJAX request is completed
+        }) 
+
+-- Fetch --
+    - Fetch utilizes the Promise API
+        - A Promise represents the eventual result of an asynchronous operation
+    - Example:
+        fetch("http://example.com/movies.json")
+            .then(function(response) {
+                return response.json()                  <- Turn the result into JSON
+            })
+            .then(function(json) {
+                console.log(JSON.stringify(json))       <- Do something with the JSON
+            })
+            .catch(function(error) {
+                console.log("Error!")                   <- Do something if it failed!
+            })
+
+    - The request object
+        - Properties:
+            - credentials:
+            - method: i.e. POST, GET, DELETE, etc.
+            - mode: i.e. "cors", "no-cors"
+            - url: The URL used for the request
+
+    - Fetch sometimes requires data (like headers or keys) to be included
+        - Example:
+            let fetchData({
+                key: ########
+                headers: {
+                    Authorization: `token $$$$$$$$
+                }
+            })
+
+            fetch(url, fetchData)
+                .then()
+                .catch()
+
+    - You can make a Request Object and then invoke fetch on the request object alone
+        let req = new Request({...})
+
+        fetch(req)
+            .then(...)
+            .catch(...)
+
+    - Responses to fetch are always wrapped in a ReadableStream; this is why we have to do the first .then(response.json()) to turn it into JSON
+    - Response.type:
+        - basic: Same origin
+        - cors: Different origin
+        - opaque: Different origin (server sent no headers)
+
+    - Response.ok
+        - Returns true when the status is 2xx or 3xx
+        - Allows us to reject the promise and fail to the catch
+    
+
+-- Axios --
+    - Can be used from both the browser and the server
+    - Utilizes the Promise API
+    - Follows the request and response paradigm
+    - Transforms the JSON data directly into a usable format, instead of a ReadableStream (removing the need for the first .then)
+        - Requires the data to be returned in a JSON format
+    - Example:
+        axios.get(url).then(res => console.log(res))
+
+    - Error handling:
+        axios.get(url)
+            .then({
+                ...
+            })
+            .catch({
+                ...
+            })
+
+    - CRUD operators:
+        - CREATE / READ / UPDATE / DELETE
+
+    - Axios Response Object:
+        {
+            data: {},
+            status: 200,
+            statusText: "OK",
+            headers: {},
+            config: {},
+            request: {}
+        }
+
+    - Async function with Axios:
+        async function makeGetRequest() {
+
+            let res = await axios.get(url)
+
+            let data = res.data
+            console.log(res)
+        }
+
+    - Axios Promise.all:
+        async function makeRequests() {
+
+            let [u1, u2] = await Promise.all([
+                axios.get(url1),
+                axios.get(url2)
+            ]);
+
+            console.log(u1);
+            console.log(u2);
+        }
