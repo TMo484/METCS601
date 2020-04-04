@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Beer Maps!</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+        <style>
+
+            * {
+                font-family: 'Poppins', sans-serif;
+            }
+
+            #header {
+                background-color: whitesmoke;
+            }
+
+            #content {
+                background-color: white;
+            }
+
+            input {
+                background-color: white;
+            }
+
+            button:hover {
+                background-color:peachpuff
+            }
+
+            a {
+            color: inherit; /* blue colors for links too */
+            text-decoration: inherit; /* no underline */
+            }
+
+            a:hover {
+                color: blue;
+            }
+            
+            h1 {
+                text-align: center;
+            }
+
+            h3 {
+                margin: 0 0 10px 0;
+                text-align: center;
+            }
+
+            h4 {
+                margin: 10px;
+            }
+
+            .shop-name {
+                font-weight: bold;
+            }
+
+            .address {
+                color: grey;
+                font-style: italic;
+            }
+
+            .flex {
+                display: flex;
+                align-items: center;
+            }
+
+            .centered {
+                justify-content: center;
+            }
+
+            .tooltip {
+                position: relative;
+                display: inline-block;
+            }
+
+            .tooltip .tooltiptext {
+                visibility: hidden;
+                width: 120px;
+                background-color: black;
+                color: #fff;
+                text-align: center;
+                padding: 5px 0;
+                border-radius: 6px;
+                
+                /* Position the tooltip text - see examples below! */
+                position: absolute;
+                z-index: 1;
+            }
+
+            .tooltiptext img {
+                width: 110px;
+                height: auto;
+            }
+            
+            .tooltip:hover .tooltiptext {
+                visibility: visible;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            <div>
+                <h1>Search for your favorite beer town!</h1>
+                <h3>Enter your favorite City and State below; or explore by hitting Randomize!</h3>
+            </div>
+            <div class="flex centered">
+                <div class="flex">
+                    <h4>City:</h4>
+                    <input id="city" placeholder="e.g. Boston"/>
+                </div>
+                <div class="flex">
+                    <h4>State:</h4>
+                    <input id="state" placeholder="e.g. MA"/>
+                </div>
+            </div>
+            <button id="search" onclick=handleSearch(this.id)>Search by City</button>
+            <button id="random" onclick=handleSearch()>Randomize!</button>
+            <hr>
+        </div>
+        <div id="content">
+            <div id="results">Fetching...</div>
+        </div>
+        
+    </body>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script>
+
+        // initialize some variables (I know.. I know.. API keys shouldn't be stored in here)
+        const apiKey = '61150b9d6420b3efd4b37fb77e325e17'
+        const corsSite = 'https://cors-anywhere.herokuapp.com/'
+
+        function handleSearch(elem) {
+            if(elem === "search") {
+                let inputCity = document.getElementById("city").value
+                let inputState = document.getElementById("state").value
+                if(inputCity && inputState) {
+                    document.getElementById("city").value = ""
+                    document.getElementById("state").value = ""
+                    fetchBeerMaps(inputCity, inputState)
+                } else {
+                    alert("You must fill out both City and State in order to search")
+                }
+            } else (
+                fetchBeerMaps()
+            )
+        }
+
+        function fetchBeerMaps(inputCity, inputState) {
+
+            let city;
+            let state;
+
+            // check for input. this could be done with destructuring, but I ran into issues (scope seemed to be stuck inside the if statement)
+            if (!inputCity || !inputState) {
+                let randCities = [{city: "boston", state: "ma"}, {city: "golden", state: "co"}, {city:"knoxville", state:"tn"}]
+                let randCity = randCities[Math.floor(Math.random() * randCities.length)]
+                city = randCity.city
+                state = randCity.state
+            } else {
+                city = inputCity
+                state = inputState
+            }
+
+            const requestURL = `http://beermapping.com/webservice/loccity/${apiKey}/${city},${state}&s=json`
+
+            // using AJAX to obtain beermapping data
+            $.ajax({
+                url: requestURL,
+                type: "GET",
+                beforeSend: function(xhr){xhr.setRequestHeader('origin', 'eatly.app');}
+            })
+            .done(res => {
+                displayResults(res)
+            })
+            .fail(err => {
+                console.log(`error ${err}`)
+                document.getElementById("results").innerHTML = "Oh No! Something went wrong. Try another selection!"
+            })
+        }
+
+        function displayResults(res) {
+            // initialize some variables for storage
+            let resultsObject = {}
+            let beerMapList = ""
+
+            // iterate through the results and sort them into categories based on "status"
+            res.map(beerPlace => {
+                let status = beerPlace.status
+                if (status in resultsObject) {
+                    resultsObject[status].push(beerPlace)
+                } else {
+                    resultsObject[status] = [beerPlace]
+                }
+            })
+
+            // create a <ul> for each category
+            Object.keys(resultsObject).forEach(key => {
+                let shops = ""
+                resultsObject[key].forEach(shop => {
+                    shops += `<li><span class="shop-name tooltip"><a href=http://${shop.url} target=_blank>${shop.name}</a><span class="tooltiptext">Rating: ${Math.round(shop.overall) === 0 ? "Unavailable" : Math.round(shop.overall)}</span></span> -- <span class="address">${shop.street}, ${shop.city}, ${shop.state} ${shop.zip}</span></li>`
+                })
+                beerMapList += `<h3>${key}</h3><ul>${shops}</ul>`
+            })
+
+            document.getElementById("results").innerHTML = beerMapList
+        }
+        
+        fetchBeerMaps("san francisco", "ca")
+    </script>
+
+</html>

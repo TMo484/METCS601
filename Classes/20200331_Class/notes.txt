@@ -135,7 +135,7 @@
     - Response.type:
         - basic: Same origin
         - cors: Different origin
-        - opaque: Different origin (server sent no headers)
+        - opaque: Different origin (server sends no headers)
 
     - Response.ok
         - Returns true when the status is 2xx or 3xx
