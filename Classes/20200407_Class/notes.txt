@@ -1,0 +1,94 @@
+-- Promises
+    - A promise is an object that represents a "promise" that the rest of the code will be executed at some point
+    - A promise can have 3 states:
+        - Pending: The operation hasn't returned yet
+        - Fulfilled: The operation completed successfully
+        - Rejected: The operation failed
+        - Settled: Everything is done
+    
+    - Promises can only succeed or fail once; the outcome being Fulfilled or Rejected
+        - This is in contrast to Listeners; which can happen multiple times
+    
+    - Javascript is single-threaded (i.e. only one script can be executed at the same time)
+        - This is Synchronous
+        - Promises allow for Asynchronous execution
+            - This is because when a promise fulfills (or rejects) it calls a function (the callback function)
+    
+    - Example of a Promise:
+        // Setting up the promise
+        let myPromise = new Promise(function(resolve, reject) {
+            /// do code
+
+            if (/// check to see if everything was OK) {
+                resolve(/// value you want to return)
+            } else {
+                reject(/// value you want to return, usually Error())
+            }
+        })
+
+        // Creating a function to check the promise
+        function checkPromise() {
+            myPromise
+                .then(function(res) {
+                    console.log(`It Worked! ${res}`)
+                })
+                .catch(function(rej) {
+                    console.log(`It didn't work... ${rej})
+                })
+        }
+
+        // Call the function to check the promise
+        checkPromise();
+        
+
+    - You can chain promises together
+        - Get an Example
+
+    - Promise.resolve() & Promise.reject()
+        - You don't always have to use .then
+        ** Get an example
+
+    - Promise.all consumes an array of promises and resolves when all promises are completed
+
+
+-- Async / Await
+    - Async is the keyword for function declaration; ensures that the function returns a promise
+    - Await is used during promise handling; can only be used inside of async functions
+
+    - Async / Await are essentially the same as promises under the hood
+    - Example:
+        async function myFunc() {
+            let content = await fetch(///)
+            let text = await content.json()
+
+            return text
+        }
+
+        let myStuff = myFunc().then()           <-- myFunc() returns a promise; so we call .then when necessary
+
+
+    - Another example:
+        async function f() {
+
+            let promise = new Promise((resolve, reject) => {
+                setTimeout(() => resolve("done!"), 1000)                <-- After 1000 ms, resolve the Promise
+            })
+
+            let result = await promise;                                 <-- Wait until promise is resolved
+
+            console.log(result)                                         <-- Log the result
+
+        }
+
+    - You can add async functions to:
+        - Event Listeners
+        - Objects
+        - Methods
+        - etc...
+
+    - Parallelism: Having two async functions run at the same time 
+        - 
+
+    - Error Handling
+        - Use try..catch to grab the error if still within the async 
+        -
