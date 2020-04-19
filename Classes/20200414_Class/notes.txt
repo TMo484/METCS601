@@ -1,0 +1,52 @@
+-- Typescript
+    - A superset of Javascript (it covers the entirety of Javascript)
+    - Installed by npm
+    - Typescript has the extension .ts
+    - Compiled by TSC (tsc.exe; TypeScript Compiler)
+        - Example:
+        tsc Person.ts >> Person.js
+
+    - Basic Expression
+        let isOver21: boolean = false;
+
+        -or-
+
+        let isOver21: boolean
+        isOver21 = false;
+
+        let foo: number = 123;
+
+    - You don't have to explicitly cast a type, but it is best practice
+    - "Any" allows any Javascript type to be assigned to the variable
+    - "Void" is basically only used when a function doesn't return anything
+    - "Undefined" - something that hasn't been initialized
+    - "Null" - something that is currently unavailable
+    - Never: an unreachable end point that can't lead anywhere; such as errors
+        - Example:
+            function error(): never {
+                throw new Error("Womp")
+            }
+
+    - Interfaces: A contract that an entity should conform to
+        - Example:
+            interface Account {
+                id: number,
+                type: string,
+                number?: string,
+                created: Date
+            }
+
+        - readonly vs. const
+            - Variables use const
+            - Properties use readonly ()
+
+        - Optional properties
+            - A question mark in front of the property
+        
+        ** Interface Signatures
+
+        - Enumerations; a better practice for creating a list of options / constant values
+            - Example:
+ 
+
+
