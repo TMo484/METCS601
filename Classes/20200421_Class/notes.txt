@@ -1,0 +1,13 @@
+-- React Routing
+    - React Router is used to control the URL
+    - It directs users through the application
+    - Browse Router vs. Hash Router
+        - Browser Router should be utilized when there are dynamic pages
+        - Hash Router should be used when the pages are static
+
+    - Using the "exact" keyword when there are two similar component names to ensure that right component gets served
+    - Router push
+
+-- Final Exam
+    - 10 Questions
+    - Comprehensive (mostly material after the first exam)
